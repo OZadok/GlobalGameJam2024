@@ -36,12 +36,24 @@ public class NpcHappinessChanger : MonoBehaviour
 
     private void OnEnable()
     {
-        Messenger.Default.Subscribe<TickEvent>(OnTickEvent);
+        
     }
 
     private void OnDisable()
     {
+        Messenger.Default.Unsubscribe<PlayerChangedDirectionEvent>(OnPlayerChangedDirection);
         Messenger.Default.Unsubscribe<TickEvent>(OnTickEvent);
+        
+        if (waitAfterCoroutine != null)
+        {
+            StopCoroutine(waitAfterCoroutine);
+        }
+        if (waitBeforeCoroutine != null)
+        {
+            StopCoroutine(waitBeforeCoroutine);
+        }
+        
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -62,10 +74,12 @@ public class NpcHappinessChanger : MonoBehaviour
     private void PlayerEnter()
     {
         Messenger.Default.Subscribe<PlayerChangedDirectionEvent>(OnPlayerChangedDirection);
+        Messenger.Default.Subscribe<TickEvent>(OnTickEvent);
     }
     private void PlayerExit()
     {
         Messenger.Default.Unsubscribe<PlayerChangedDirectionEvent>(OnPlayerChangedDirection);
+        Messenger.Default.Unsubscribe<TickEvent>(OnTickEvent);
     }
     
     private void OnPlayerChangedDirection(PlayerChangedDirectionEvent obj)
@@ -106,6 +120,10 @@ public class NpcHappinessChanger : MonoBehaviour
     private IEnumerator SetWaitForClickAfterForgiveness()
     {
         yield return new WaitForSeconds(_forgivenessTimeAfter);
+        if (_waitForClick)
+        {
+            BadTick();
+        }
         _waitForClick = false;
     }
     

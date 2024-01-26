@@ -46,4 +46,9 @@ public class PlayerMovment : MonoBehaviour
     {
         ChangeDirection();
     }
+    
+    IEnumerator ChangeSpeed()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
 }

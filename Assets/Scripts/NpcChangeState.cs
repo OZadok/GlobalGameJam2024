@@ -1,10 +1,13 @@
+using System.Collections;
 using System.Collections.Generic;
 using SuperMaxim.Messaging;
 using UnityEngine;
 
 public class NpcChangeState : MonoBehaviour
 {
-    [SerializeField] private List<Component> _componnentsToRemove;
+    //[SerializeField] private List<Component> _componnentsToRemove;
+    [SerializeField] private MonoBehaviour _npcHappinessChanger;
+    [SerializeField] private Collider2D col;
     private void OnEnable()
     {
         Messenger.Default.Subscribe<HappinessChangedEvent>(OnHappinessChanged);
@@ -27,16 +30,27 @@ public class NpcChangeState : MonoBehaviour
             return;
         }
 
-        ChangeStateToLaugh();
+        StartCoroutine(ChangeStateToLaugh());
     }
 
+    private IEnumerator ChangeStateToLaugh()
+    {
+        yield return null;
+        _npcHappinessChanger.enabled = false;
+        col.enabled = false;
+    }
+    
+    /*
     private void ChangeStateToLaugh()
     {
         for (var i = 0; i < _componnentsToRemove.Count; i++)
         {
             var monoBehaviour = _componnentsToRemove[i];
+            
             Destroy(monoBehaviour);
         }
         //todo - AnimationThings...
+        
     }
+    */
 }
