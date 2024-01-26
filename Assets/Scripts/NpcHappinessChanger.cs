@@ -75,6 +75,7 @@ public class NpcHappinessChanger : MonoBehaviour
     {
         Messenger.Default.Subscribe<PlayerChangedDirectionEvent>(OnPlayerChangedDirection);
         Messenger.Default.Subscribe<TickEvent>(OnTickEvent);
+        _waitForClick = true;
     }
     private void PlayerExit()
     {
@@ -84,7 +85,8 @@ public class NpcHappinessChanger : MonoBehaviour
     
     private void OnPlayerChangedDirection(PlayerChangedDirectionEvent obj)
     {
-        if (_waitForClick && obj.Direction == _npcData.Direction)
+        var isBefore =  _npcData.NextTimeTick - _forgivenessTimeBefore < Time.time && Time.time < _npcData.NextTimeTick;
+        if (_waitForClick && (obj.Direction == _npcData.Direction || isBefore && obj.Direction != _npcData.Direction))
         {
             _waitForClick = false;
             GoodTick();
