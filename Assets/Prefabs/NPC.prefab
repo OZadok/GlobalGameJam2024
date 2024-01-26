@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0817aee588c1a4f9d8981bfd89964b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: 0.805
+  _level: 0.244
 --- !u!114 &1387366377147553871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,8 +230,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  _forgivenessTimeBefore: 0.4
-  _forgivenessTimeAfter: 0.4
+  _forgivenessTimeBefore: 0.1
+  _forgivenessTimeAfter: 0.1
   _goodTickHappinessChangePerSecond: 0.2
   _badTickHappinessChangePerSecond: -0.3
 --- !u!114 &7577644753274394462
@@ -295,6 +295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxAngle: 45
   _npcData: {fileID: 245079213674470751}
+  _npcAnimationController: {fileID: 8392392992992702241}
+  test: 0
 --- !u!1 &7670295032543043323
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +478,7 @@ PrefabInstance:
     - target: {fileID: 6410451217673439427, guid: a22dac272222f4c60b39c5993348bcf6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7179832904938178399, guid: a22dac272222f4c60b39c5993348bcf6,
         type: 3}
@@ -504,3 +506,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4118331629005757223}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8392392992992702241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5571098139486221318, guid: a22dac272222f4c60b39c5993348bcf6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4118331629005757223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a95410709cf491dbb0daec92f234ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

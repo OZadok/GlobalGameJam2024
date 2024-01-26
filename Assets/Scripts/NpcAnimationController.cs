@@ -20,7 +20,6 @@ public class NpcAnimationController : MonoBehaviour
     {
         _sadStates = new List<GameObject>();
         var childCnt = sadStatesParent.childCount;
-        _sadnessStep = exitSadnessThreshold / childCnt;
         for (var i = 0; i < childCnt; i++) 
             _sadStates.Add(sadStatesParent.GetChild(i).gameObject);
     }
@@ -33,7 +32,7 @@ public class NpcAnimationController : MonoBehaviour
 
     public void SetHappiness(float happiness)
     {
-        var targetStateIndex = Mathf.FloorToInt(happiness / _sadnessStep);
+        var targetStateIndex = Mathf.FloorToInt(happiness * (_sadStates.Count - 1));
         for (var i = 0; i < _sadStates.Count; i++) 
             _sadStates[i].SetActive(i == targetStateIndex);
     }
