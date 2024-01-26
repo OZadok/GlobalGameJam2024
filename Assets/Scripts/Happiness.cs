@@ -24,6 +24,7 @@ public class Happiness : MonoBehaviour
         }
 
         _level += obj.Amount;
+        _level = Mathf.Clamp01(_level);
 
         Messenger.Default.Publish(new HappinessChangedEvent(gameObject, _level));
     }
