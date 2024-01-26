@@ -11,6 +11,7 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField] private float _speed = 5f;
     [SerializeField] private Rigidbody2D _rigidbody;
     private float _direction = 1;
+    private bool isGrounded;
 
     private void Awake()
     {
@@ -37,9 +38,34 @@ public class PlayerMovment : MonoBehaviour
         Messenger.Default.Publish(new PlayerChangedDirectionEvent(_direction));
     }
 
+    private void FixedUpdate()
+    {
+        GroundCheck();
+    }
+
+    private void GroundCheck()
+    {
+        var hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f);
+        isGrounded = hit;
+    }
+
+    private void Update()
+    {
+        if (!isGrounded)
+        {
+            return;
+        }
+
+        if (_rigidbody.velocity.sqrMagnitude >= _speed * _speed)
+        {
+            return;
+        }
+        UpdateVelocity();
+    }
+
     private void UpdateVelocity()
     {
-        _rigidbody.velocity = Vector2.right * _speed * _direction;
+        _rigidbody.velocity = Vector2.right * (_speed * _direction);
     }
 
     public void OnChangeDirection(InputValue inputValue)
