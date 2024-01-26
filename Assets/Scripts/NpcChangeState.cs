@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NpcChangeState : MonoBehaviour
 {
-    [SerializeField] private List<MonoBehaviour> _componnentsToRemove;
+    [SerializeField] private List<Component> _componnentsToRemove;
     private void OnEnable()
     {
         Messenger.Default.Subscribe<HappinessChangedEvent>(OnHappinessChanged);

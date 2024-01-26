@@ -44,7 +44,7 @@ RotationConstraint:
   serializedVersion: 2
   m_Weight: 0.5
   m_RotationAtRest: {x: 0, y: 0, z: -19.57077}
-  m_RotationOffset: {x: 0, y: 0, z: 19.628664}
+  m_RotationOffset: {x: 0, y: 0, z: 19.628666}
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
@@ -598,7 +598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4360688516637176442
 Transform:
   m_ObjectHideFlags: 0
@@ -888,7 +888,7 @@ RotationConstraint:
   serializedVersion: 2
   m_Weight: 0.3
   m_RotationAtRest: {x: 0, y: 0, z: -7.8249516}
-  m_RotationOffset: {x: 0, y: 0, z: 18.379875}
+  m_RotationOffset: {x: 0, y: 0, z: 18.379879}
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
@@ -941,7 +941,7 @@ RotationConstraint:
   serializedVersion: 2
   m_Weight: 0.5
   m_RotationAtRest: {x: 0, y: 0, z: 2.6339388}
-  m_RotationOffset: {x: 0, y: 0, z: -2.5691702}
+  m_RotationOffset: {x: 0, y: 0, z: -2.5691707}
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
@@ -994,7 +994,7 @@ RotationConstraint:
   serializedVersion: 2
   m_Weight: 0.3
   m_RotationAtRest: {x: 0, y: 0, z: 1.9291191}
-  m_RotationOffset: {x: 0, y: 0, z: -4.4374685}
+  m_RotationOffset: {x: 0, y: 0, z: -4.437469}
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
@@ -1186,7 +1186,7 @@ RotationConstraint:
   serializedVersion: 2
   m_Weight: 0.3
   m_RotationAtRest: {x: 0, y: 0, z: -11.126327}
-  m_RotationOffset: {x: 0, y: 0, z: 26.204823}
+  m_RotationOffset: {x: 0, y: 0, z: 26.204824}
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
