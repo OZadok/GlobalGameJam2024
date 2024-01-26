@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Events;
 using SuperMaxim.Messaging;
 using UnityEngine;
 
@@ -38,6 +39,8 @@ public class NpcChangeState : MonoBehaviour
         yield return null;
         _npcHappinessChanger.enabled = false;
         col.enabled = false;
+
+        Messenger.Default.Publish(new NpcChangedStateEvent());
     }
     
     /*
