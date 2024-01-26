@@ -1,0 +1,61 @@
+import pymel.core as pm
+
+def scale_to_height_canonicalize_and_center(target_height):
+    # Start an undo chunk
+    pm.undoInfo(openChunk=True)
+    try:
+        # Get the selected objects
+        selected_objects = pm.ls(selection=True)
+
+        # Check if there is exactly one object selected
+        if len(selected_objects) != 1:
+            pm.warning("Please select exactly one object.")
+            return
+
+        # Get the selected object
+        obj = selected_objects[0]
+
+        # Get the bounding box of the object
+        bbox = obj.getBoundingBox()
+
+        # Calculate the current height
+        current_height = bbox.height()
+
+        # Calculate the scale factor needed to reach the target height
+        scale_factor = target_height / current_height
+
+        # Apply uniform scaling
+        current_scale = obj.getScale()
+        new_scale = [s * scale_factor for s in current_scale]
+        obj.setScale(new_scale)
+
+        # Freeze transformations
+        pm.makeIdentity(obj, apply=True, t=1, r=1, s=1, n=0)
+
+        # Clean history
+        pm.delete(obj, ch=True)
+
+        # Set pivot
+        # Y value at the bottom-most point of the model
+        pivot_y = bbox.min().y
+        # X and Z in the center
+        pivot_x = (bbox.min().x + bbox.max().x) / 2
+        pivot_z = (bbox.min().z + bbox.max().z) / 2
+
+        # obj.setPivot([pivot_x, pivot_y, pivot_z], worldSpace=True)
+        pm.xform(obj, piv=[pivot_x, pivot_y, pivot_z], ws=True)
+
+        # Move object so that its pivot is at the origin (0,0,0)
+        pivot_world_position = obj.getPivots(worldSpace=True)[0]
+        obj.setTranslation(-pivot_world_position, space='world')
+        obj = selected_objects[0]
+        model_group = pm.group(obj, name="Model")
+        pm.xform(model_group, piv=[0, 0, 0], ws=True)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    finally:
+        # End the undo chunk
+        pm.undoInfo(closeChunk=True)
+
+# Example usage
+scale_to_height_canonicalize_and_center(10.0)  # Replace 10.0 with your target height

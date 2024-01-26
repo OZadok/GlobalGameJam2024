@@ -1,0 +1,59 @@
+import pymel.core as pm
+
+def set_skin_weights(yStart, yEnd):
+    # Get the current selection
+    selection = pm.ls(selection=True)
+
+    # Check if the selection is valid
+    if len(selection) < 2:
+        raise RuntimeError("Please select a joint and then a mesh.")
+
+    target_joint = selection[0]
+    mesh = selection[1]
+
+    # Check if the first selected object is a joint
+    if not isinstance(target_joint, pm.nodetypes.Joint):
+        raise RuntimeError("First selected object is not a joint.")
+
+    # Get the skin cluster associated with the mesh
+    skin_clusters = pm.ls(pm.listHistory(mesh), type='skinCluster')
+    if not skin_clusters:
+        raise RuntimeError(f"No skinCluster found for mesh {mesh}")
+    skin_cluster = skin_clusters[0]
+
+    # Get the list of joints influencing the skin cluster
+    joints = pm.skinCluster(skin_cluster, query=True, influence=True)
+
+    # Ensure the target joint is one of the influences
+    if target_joint not in joints:
+        raise RuntimeError(f"Joint {target_joint} is not influencing the mesh {mesh}")
+
+    # Iterate through each vertex
+    for vtx in pm.ls(mesh + '.vtx[*]', fl=True):
+        position = vtx.getPosition(space='world')
+        height = position.y
+
+        # Calculate new weight for the target joint
+        if height <= yStart:
+            weight = 1.0
+        elif height >= yEnd:
+            weight = 0.0
+        else:
+            weight = 1.0 - ((height - yStart) / (yEnd - yStart))
+
+        # Get current weights for all influencing joints
+        current_weights = pm.skinPercent(skin_cluster, vtx, query=True, value=True)
+
+        # Calculate new weights
+        new_weights = [(joints[i], current_weights[i] * (1 - weight)) for i in range(len(joints))]
+        new_weights[joints.index(target_joint)] = (target_joint, weight)
+
+        # Set the new weights
+        for j, w in new_weights:
+            pm.skinPercent(skin_cluster, vtx, transformValue=[(j, w)])
+
+# Example usage
+# Replace these values with the desired yStart and yEnd heights
+yStart = 0.0
+yEnd = 5.0
+set_skin_weights(yStart, yEnd)

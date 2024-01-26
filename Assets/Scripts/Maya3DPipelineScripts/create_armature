@@ -1,0 +1,56 @@
+import pymel.core as pm
+
+def create_joint_chain_and_bind_skin(num_joints, start_height):
+    # Begin undo block
+    pm.undoInfo(openChunk=True)
+    
+    try:
+        # Ensure at least one object is selected
+        selected_objects = pm.ls(selection=True, type='transform')
+        if not selected_objects:
+            raise ValueError("No object selected. Please select a model.")
+
+        # Assuming the first selected object is the model
+        model = selected_objects[0]
+        bbox = model.getBoundingBox()
+        model_height = bbox.height()
+
+        # Check if start_height is within the model's height
+        if start_height < 0 or start_height > model_height:
+            raise ValueError("Start height must be between 0 and the model's height.")
+
+        # Create root joint at (0, 0, 0)
+        pm.select(clear=True)
+        root_joint = pm.joint(name="root_joint", position=(0, 0, 0))
+
+        # Create joints starting from start_height
+        joint_list = [root_joint]
+        prev_joint = root_joint
+        for i in range(num_joints):
+            # Calculate joint position
+            y_pos = start_height + (model_height - start_height) / (num_joints - 1) * i
+
+            # Create joint
+            joint_name = "joint_{}".format(i + 1)
+            joint = pm.joint(name=joint_name, position=(0, y_pos, 0))
+
+            # Parent the joint
+            pm.parent(joint, prev_joint)
+            joint_list.append(joint)
+            prev_joint = joint
+
+        # Create a new group for the armature
+        armature_group = pm.group("root_joint", name="Armature")
+
+        # Bind Skin
+        pm.skinCluster(joint_list, model, toSelectedBones=True, bindMethod=0, normalizeWeights=1, weightDistribution=0)
+
+    except Exception as e:
+        print("An error occurred: ", e)
+
+    finally:
+        # End undo block
+        pm.undoInfo(closeChunk=True)
+
+# Example usage: create a root joint and a chain of 5 joints starting from height 2 and bind skin
+create_joint_chain_and_bind_skin(5, 2)
