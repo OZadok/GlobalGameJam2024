@@ -28,8 +28,7 @@ public class AudioManager : MonoBehaviour
 
     private void OnWorldHappinessLevelChanged(WorldHappinessLevelChangedEvent obj)
     {
-        Debug.Log("here");
-        var index = Mathf.FloorToInt(obj.Level * (_travelMusicAudioClips.Count - 1));
+        var index = Mathf.FloorToInt(Mathf.Clamp01(obj.Level) * (_travelMusicAudioClips.Count - 1));
         var targetClip = _travelMusicAudioClips[index];
         if (_travelMusicAudioSource.clip != targetClip)
         {
