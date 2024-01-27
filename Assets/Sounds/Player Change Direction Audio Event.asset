@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22143c2e90167f241810fb1325f638e8, type: 3}
   m_Name: Player Change Direction Audio Event
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 7b566dc72f8dd2e43876d45f787aa272, type: 3}
   volume:
     minValue: 0.95
     maxValue: 1

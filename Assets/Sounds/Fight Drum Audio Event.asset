@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22143c2e90167f241810fb1325f638e8, type: 3}
   m_Name: Fight Drum Audio Event
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 48ff2392421a0ff4287ac0d8c4799f39, type: 3}
+  - {fileID: 8300000, guid: 8df3c966e6eff3946965a2f3158b0639, type: 3}
+  - {fileID: 8300000, guid: 8f58e8f6117e33f4bbb41ab971b62dd5, type: 3}
+  - {fileID: 8300000, guid: 4843d3fc98294e54db1cc175f4d40aec, type: 3}
   volume:
     minValue: 0.95
     maxValue: 1

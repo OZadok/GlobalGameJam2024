@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22143c2e90167f241810fb1325f638e8, type: 3}
   m_Name: Good Tick Audio Event
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: c9de4c2c8453848438a5470250e5c764, type: 3}
+  - {fileID: 8300000, guid: c492bfb52527e7a44aa26bdcd3946ce1, type: 3}
+  - {fileID: 8300000, guid: 3cafce8fe1a09fa4cb5ed4108db7c661, type: 3}
+  - {fileID: 8300000, guid: 35e5d26cf57bfa941bd13997e3fb09a2, type: 3}
   volume:
     minValue: 0.95
     maxValue: 1
   pitch:
-    minValue: 0.95
-    maxValue: 1.05
+    minValue: 1.0010277
+    maxValue: 1.0010277
   spatialBlend: 0
   audioGroup: {fileID: 3252615381511506212, guid: 1672087c69f5cbb44a00b25d582a350b,
     type: 2}
