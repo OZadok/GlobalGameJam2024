@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _travelMusicAudioClips:
-  - {fileID: 8300000, guid: ca11f7bf740ba76418e87c4da24343fa, type: 3}
-  - {fileID: 8300000, guid: c38c6137f77953749be4a8132be1cdbe, type: 3}
+  - {fileID: 8300000, guid: 8fb6701f6c3934a8385a159400eac0d5, type: 3}
+  - {fileID: 8300000, guid: ee79140250ec14076ba5a72f3069bcb1, type: 3}
+  - {fileID: 8300000, guid: b03b55f89b95c4e4799b751869960b42, type: 3}
   _travelMusicAudioSource: {fileID: 4266784122561865515}
   _fightMusicAudioSource: {fileID: 9136922537979710730}
   _audioMixer: {fileID: 24100000, guid: 1672087c69f5cbb44a00b25d582a350b, type: 2}
