@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mission Success Audio Event
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 7eb655f969503384ba354ea4d6614f3a, type: 3}
   volume:
     minValue: 0.95
     maxValue: 1

@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: Fight Drum Audio Event
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 48ff2392421a0ff4287ac0d8c4799f39, type: 3}
-  - {fileID: 8300000, guid: 8df3c966e6eff3946965a2f3158b0639, type: 3}
-  - {fileID: 8300000, guid: 8f58e8f6117e33f4bbb41ab971b62dd5, type: 3}
-  - {fileID: 8300000, guid: 4843d3fc98294e54db1cc175f4d40aec, type: 3}
+  - {fileID: 8300000, guid: 484cda64941a4ea42b88b80b15dbcd07, type: 3}
+  - {fileID: 8300000, guid: f9e3c6ad13c4a9d40b73bd2de7dae255, type: 3}
+  - {fileID: 8300000, guid: d7009036c0f87c440ab1624cf65c8615, type: 3}
+  - {fileID: 8300000, guid: 4637a928951ac134dbd29f28471a8f37, type: 3}
+  - {fileID: 8300000, guid: 9f966043d8de29246b9d66eae6c25ef8, type: 3}
+  - {fileID: 8300000, guid: c5df969f77ea089468781b1ace4c4130, type: 3}
+  - {fileID: 8300000, guid: f1f185c9f20a76043bb72f451fa5660e, type: 3}
+  - {fileID: 8300000, guid: ba9395ad2eb116649bc3a84798cec403, type: 3}
   volume:
     minValue: 0.95
     maxValue: 1
