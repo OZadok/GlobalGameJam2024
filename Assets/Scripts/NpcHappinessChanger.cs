@@ -22,6 +22,8 @@ public class NpcHappinessChanger : MonoBehaviour
     
     private Coroutine waitAfterCoroutine;
     private Coroutine waitBeforeCoroutine;
+
+    public ParticleSystem goodParticles;
     
     private void Awake()
     {
@@ -154,6 +156,11 @@ public class NpcHappinessChanger : MonoBehaviour
     private void GoodTick()
     {
         Happiness.ChangeHappiness(gameObject, _goodTickHappinessChangePerSecond * _npcData.Period);
+        if (goodParticles != null)
+        {
+            goodParticles.Play();
+        }
+
         Messenger.Default.Publish(new GoodTickEvent());
     }
 
