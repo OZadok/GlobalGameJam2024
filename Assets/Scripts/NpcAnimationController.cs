@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,7 +17,7 @@ public class NpcAnimationController : MonoBehaviour
     private readonly int _randomHappyAnimTrigger8 = Animator.StringToHash("Happy8");
     private readonly int _randomHappyAnimTrigger9 = Animator.StringToHash("Happy9");
     private int[] _randomHappyAnimTriggers;
-    
+
     [SerializeField] private Transform sadStatesMockRigBaseTransform;
     [SerializeField] private Transform sadStatesParent;
     [SerializeField] private Transform transitionToHappyStatesParent;
@@ -27,10 +28,15 @@ public class NpcAnimationController : MonoBehaviour
     
     [Range(0f, 30f)]
     [SerializeField] private float transitionToHappyFrameRate = 6f;
+    
+    [Range(0f, 3f)]
+    [SerializeField] private float happinessTweenDuration = 0.33f;
 
     private List<GameObject> _sadStates;
     private List<GameObject> _transitionToHappyStates;
     private float _sadnessStep;
+    private float _currHappiness;
+    private Tween _happinessTween;
 
 
     void Start()
@@ -58,12 +64,17 @@ public class NpcAnimationController : MonoBehaviour
         sadStatesMockRigBaseTransform.localEulerAngles =
             sadStatesMockRigBaseTransform.localEulerAngles.WithZ(val * sadRigRotationSpeed);
     }
-
+    
     public void SetHappiness(float happiness)
     {
-        var targetStateIndex = Mathf.FloorToInt(happiness * (_sadStates.Count - 1));
-        for (var i = 0; i < _sadStates.Count; i++) 
-            _sadStates[i].SetActive(i == targetStateIndex);
+        _happinessTween?.Kill();
+        _happinessTween = DOVirtual.Float(_currHappiness, happiness, happinessTweenDuration, (val) =>
+        {
+            _currHappiness = val; 
+            var targetStateIndex = Mathf.FloorToInt(_currHappiness * (_sadStates.Count - 1));
+            for (var i = 0; i < _sadStates.Count; i++) 
+                _sadStates[i].SetActive(i == targetStateIndex);
+        });
     }
 
     public void BecomeHappy()
