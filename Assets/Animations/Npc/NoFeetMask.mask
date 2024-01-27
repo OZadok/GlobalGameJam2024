@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NoFeetMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: left
+    m_Weight: 1
+  - m_Path: npc_happy
+    m_Weight: 1
+  - m_Path: npc_happy/Model
+    m_Weight: 1
+  - m_Path: npc_happy/Model/npc_happy_top
+    m_Weight: 1
+  - m_Path: npc_happy/Model/npc_happy_top/npc_happy_hand_L
+    m_Weight: 1
+  - m_Path: npc_happy/Model/npc_happy_top/npc_happy_hand_R
+    m_Weight: 1
+  - m_Path: npc_happy/Model/npc_happy_top/npc_happy_head
+    m_Weight: 1
+  - m_Path: npc_happy/Model/NpcLegs
+    m_Weight: 1
+  - m_Path: npc_happy/Model/NpcLegs/npc_happy_body
+    m_Weight: 1
+  - m_Path: npc_happy/Model/NpcLegs/npc_happy_leg_L
+    m_Weight: 1
+  - m_Path: npc_happy/Model/NpcLegs/npc_happy_leg_R
+    m_Weight: 1
+  - m_Path: npc_happy/Rig
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:LeftUpLeg
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:LeftUpLeg/mixamorig:LeftLeg
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:LeftUpLeg/mixamorig:LeftLeg/mixamorig:LeftFoot
+    m_Weight: 0
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:LeftUpLeg/mixamorig:LeftLeg/mixamorig:LeftFoot/mixamorig:LeftToeBase
+    m_Weight: 0
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:LeftUpLeg/mixamorig:LeftLeg/mixamorig:LeftFoot/mixamorig:LeftToeBase/mixamorig:LeftToe_End
+    m_Weight: 0
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:RightUpLeg
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:RightUpLeg/mixamorig:RightLeg
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:RightUpLeg/mixamorig:RightLeg/mixamorig:RightFoot
+    m_Weight: 0
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:RightUpLeg/mixamorig:RightLeg/mixamorig:RightFoot/mixamorig:RightToeBase
+    m_Weight: 0
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:RightUpLeg/mixamorig:RightLeg/mixamorig:RightFoot/mixamorig:RightToeBase/mixamorig:RightToe_End
+    m_Weight: 0
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/LeftHand_joint1
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/LeftHand_joint1/LeftHand_joint2
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/LeftHand_joint1/LeftHand_joint2/LeftHand_joint3
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/LeftHand_joint1/LeftHand_joint2/LeftHand_joint3/LeftHand_joint4
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/LeftHand_joint1/LeftHand_joint2/LeftHand_joint3/LeftHand_joint4/LeftHand_joint5
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:LeftShoulder
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:LeftShoulder/mixamorig:LeftArm
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:LeftShoulder/mixamorig:LeftArm/mixamorig:LeftForeArm
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:LeftShoulder/mixamorig:LeftArm/mixamorig:LeftForeArm/mixamorig:LeftHand
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head/mixamorig:HeadTop_End
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm/mixamorig:RightHand
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/RightHand_joint1
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/RightHand_joint1/RightHand_joint2
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/RightHand_joint1/RightHand_joint2/RightHand_joint3
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/RightHand_joint1/RightHand_joint2/RightHand_joint3/RightHand_joint4
+    m_Weight: 1
+  - m_Path: npc_happy/Rig/mixamorig:Hips/mixamorig:Spine/RightHand_joint1/RightHand_joint2/RightHand_joint3/RightHand_joint4/RightHand_joint5
+    m_Weight: 1
