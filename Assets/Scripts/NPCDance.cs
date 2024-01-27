@@ -41,6 +41,10 @@ public class NPCDance : MonoBehaviour
     
     private void OnHappinessChangedEvent(HappinessChangedEvent obj)
     {
+        if (obj.GameObject != transform.parent.gameObject)
+        {
+            return;
+        }
         _npcAnimationController.SetHappiness(obj.Level);
     }
 
