@@ -212,6 +212,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 2
   _rigidbody: {fileID: 6501644635202542973}
+  GroundCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  collider: {fileID: 9201130485944192350}
 --- !u!114 &7934298723655224237
 MonoBehaviour:
   m_ObjectHideFlags: 0
