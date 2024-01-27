@@ -43,7 +43,7 @@ public class NpcChangeState : MonoBehaviour
             col.enabled = false;
         }
 
-        Messenger.Default.Publish(new NpcChangedStateEvent());
+        Messenger.Default.Publish(new NpcChangedStateEvent(gameObject));
     }
     
     /*

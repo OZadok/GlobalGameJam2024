@@ -9,6 +9,8 @@ public class NPCDance : MonoBehaviour
     [SerializeField] private NpcData _npcData;
     [SerializeField] private NpcAnimationController _npcAnimationController;
 
+    private GameObject NpcGameObject => transform.parent.gameObject;
+
     private void Awake()
     {
         Reset();
@@ -25,17 +27,30 @@ public class NPCDance : MonoBehaviour
     {
         Messenger.Default.Subscribe<TickEvent>(OnTickEvent);
         Messenger.Default.Subscribe<HappinessChangedEvent>(OnHappinessChangedEvent);
+        Messenger.Default.Subscribe<NpcChangedStateEvent>(OnNpcChangedState);
     }
 
     private void OnDisable()
     {
         Messenger.Default.Unsubscribe<TickEvent>(OnTickEvent);
         Messenger.Default.Unsubscribe<HappinessChangedEvent>(OnHappinessChangedEvent);
+        Messenger.Default.Unsubscribe<NpcChangedStateEvent>(OnNpcChangedState);
     }
 
     private void OnTickEvent(TickEvent tickEvent)
     {
         
+    }
+
+    private void OnNpcChangedState(NpcChangedStateEvent obj)
+    {
+        if (obj.NpcGameObject != NpcGameObject)
+        {
+            return;
+        }
+        
+        Debug.Log("Happy!!");
+        _npcAnimationController.BecomeHappy();
     }
 
     
