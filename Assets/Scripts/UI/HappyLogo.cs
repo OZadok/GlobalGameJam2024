@@ -1,4 +1,3 @@
-using System;
 using Events;
 using SuperMaxim.Messaging;
 using UnityEngine;
@@ -6,6 +5,9 @@ using UnityEngine;
 public class HappyLogo : MonoBehaviour
 {
     [SerializeField] private NpcHappinessChanger _npcHappinessChanger;
+    [SerializeField] private NpcData _npcData;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Rigidbody2D _rigidbody;
 
     private void Awake()
     {
@@ -18,11 +20,27 @@ public class HappyLogo : MonoBehaviour
         {
             _npcHappinessChanger = GetComponent<NpcHappinessChanger>();
         }
+
+        if (_npcData == null)
+        {
+            _npcData = GetComponent<NpcData>();
+        }
+        if (_animator == null)
+        {
+            _animator = GetComponentInChildren<Animator>();
+        }
+
+        if (_rigidbody == null)
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
     }
 
     private void Start()
     {
         _npcHappinessChanger.ManualPlayerEnter();
+        _animator.speed = _npcData.Frequency;
+        _rigidbody.simulated = false;
     }
 
     private void OnEnable()
@@ -40,6 +58,7 @@ public class HappyLogo : MonoBehaviour
     private void OnGameStarted(GameStartedEvent obj)
     {
         _npcHappinessChanger.ManualPlayerExit();
+        _rigidbody.simulated = true;
     }
 
     private void OnNpcChangedState(NpcChangedStateEvent obj)
