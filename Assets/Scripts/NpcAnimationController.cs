@@ -84,6 +84,8 @@ public class NpcAnimationController : MonoBehaviour
 
     private IEnumerator TransitionToHappy()
     {
+        sadStatesParent.gameObject.SetActive(false);
+        happyAnimator.gameObject.SetActive(false);
         transitionToHappyStatesParent.gameObject.SetActive(true); // Assuming all children are not active 
         foreach (var go in _transitionToHappyStates)
         {
