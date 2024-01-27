@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0;
     }
 
     private void OnEnable()
@@ -28,7 +27,6 @@ public class GameManager : MonoBehaviour
 
     private void StartGame(RequestStartGameEvent obj)
     {
-        Time.timeScale = 1;
         Messenger.Default.Publish(new GameStartedEvent());
     }
 

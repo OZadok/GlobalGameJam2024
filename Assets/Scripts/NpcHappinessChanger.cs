@@ -71,6 +71,16 @@ public class NpcHappinessChanger : MonoBehaviour
         }
     }
 
+    public void ManualPlayerEnter()
+    {
+        PlayerEnter();
+    }
+
+    public void ManualPlayerExit()
+    {
+        PlayerExit();
+    }
+
     private void PlayerEnter()
     {
         Messenger.Default.Subscribe<PlayerChangedDirectionEvent>(OnPlayerChangedDirection);
@@ -99,6 +109,10 @@ public class NpcHappinessChanger : MonoBehaviour
     
     private void OnTickEvent(TickEvent tickEvent)
     {
+        if (tickEvent.NpcData.gameObject != gameObject)
+        {
+            return;
+        }
         if (waitAfterCoroutine != null)
         {
             StopCoroutine(waitAfterCoroutine);

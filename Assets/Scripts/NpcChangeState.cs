@@ -38,7 +38,10 @@ public class NpcChangeState : MonoBehaviour
     {
         yield return null;
         _npcHappinessChanger.enabled = false;
-        col.enabled = false;
+        if (col != null)
+        {
+            col.enabled = false;
+        }
 
         Messenger.Default.Publish(new NpcChangedStateEvent());
     }
