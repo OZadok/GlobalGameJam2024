@@ -15,6 +15,12 @@ public class PlayerTickVisual : MonoBehaviour
 
     private void Reset()
     {
+        SetMaterials();
+    }
+
+    [ContextMenu("SetMaterials")]
+    private void SetMaterials()
+    {
         _materials.Clear();
         foreach (var renderer in GetComponentsInChildren<Renderer>())
         {

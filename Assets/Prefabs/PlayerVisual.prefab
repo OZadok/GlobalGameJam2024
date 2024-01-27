@@ -41,7 +41,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a49faa99946894f8ea2467b5626d66d5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a49faa99946894f8ea2467b5626d66d5,
         type: 3}
@@ -51,12 +51,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a49faa99946894f8ea2467b5626d66d5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a49faa99946894f8ea2467b5626d66d5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a49faa99946894f8ea2467b5626d66d5,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a49faa99946894f8ea2467b5626d66d5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a49faa99946894f8ea2467b5626d66d5,
         type: 3}
@@ -159,6 +159,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4721231208419072835}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a49faa99946894f8ea2467b5626d66d5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8055931818434413475}
   m_SourcePrefab: {fileID: 100100000, guid: a49faa99946894f8ea2467b5626d66d5, type: 3}
 --- !u!95 &1654966561293063386 stripped
 Animator:
@@ -185,3 +189,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1654966561293063386}
+--- !u!114 &8055931818434413475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430324281379148826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690f996428bca94478a50bb9bc2dfa69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materials:
+  - {fileID: 2100000, guid: 5e75894d7a38d40129b5b3a7e32bcc6d, type: 2}
+  - {fileID: 2100000, guid: a3377458ff27d46588c96813b72c6fce, type: 2}
+  - {fileID: 2100000, guid: 1adddf5e0e2de44efa9b7b3fa4384a27, type: 2}
+  _animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.15
+      value: 0.7
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.27128357
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15525867
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _blackFlickerTime: 0.2
