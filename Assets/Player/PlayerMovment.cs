@@ -52,8 +52,10 @@ public class PlayerMovment : MonoBehaviour
         isGrounded = amount > 0;
     }
 
+    public float test;
     private void FixedUpdate()
     {
+        test = _rigidbody.velocity.magnitude;
         // var previousGrounded = isGrounded;
         GroundCheck();
         
@@ -112,7 +114,49 @@ public class PlayerMovment : MonoBehaviour
 
     public void OnChangeDirection(InputValue inputValue)
     {
-        ChangeDirection();
+        if (inputValue.isPressed)
+        {
+            ChangeDirection();
+            if (checkHoldCoroutine == null && holdCoroutine == null)
+            {
+                checkHoldCoroutine = StartCoroutine(CheckForHold());
+            }
+        }
+        else
+        {
+            if (checkHoldCoroutine != null)
+            {
+                StopCoroutine(checkHoldCoroutine);
+                checkHoldCoroutine = null;
+            }
+            if (holdCoroutine != null)
+            {
+                StopCoroutine(holdCoroutine);
+                holdCoroutine = null;
+                EndHold();
+            }
+        }
+    }
+
+    private Coroutine checkHoldCoroutine = null;
+    private Coroutine holdCoroutine = null;
+
+    private IEnumerator CheckForHold()
+    {
+        yield return new WaitForSeconds(0.35f);
+        //start Hold
+        holdCoroutine = StartCoroutine(HoldEnumerator());
+    }
+
+    private IEnumerator HoldEnumerator()
+    {
+        _speed *= 2f;
+        yield return null;
+    }
+
+    private void EndHold()
+    {
+        _speed /= 2f;
     }
     
     IEnumerator ChangeSpeed()
