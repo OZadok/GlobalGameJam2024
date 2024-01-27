@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Events;
 using SuperMaxim.Messaging;
 using UnityEngine;
@@ -5,8 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     private float _worldHappinessLevel;
-    private int _npcsAmount = 2; //todo
+    private int _npcsAmount => _npcs.Count;
+    private List<NpcData> _npcs = new List<NpcData>();
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    public void AddNpcData(NpcData npcData)
+    {
+        _npcs.Add(npcData);
+    }
 
 
     private void Start()
