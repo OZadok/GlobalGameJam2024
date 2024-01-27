@@ -27,7 +27,7 @@ public class NPCDance : MonoBehaviour
     {
         Messenger.Default.Subscribe<TickEvent>(OnTickEvent);
         Messenger.Default.Subscribe<HappinessChangedEvent>(OnHappinessChangedEvent);
-        Messenger.Default.Unsubscribe<NpcChangedStateEvent>(OnNpcChangedState);
+        Messenger.Default.Subscribe<NpcChangedStateEvent>(OnNpcChangedState);
     }
 
     private void OnDisable()
@@ -49,6 +49,7 @@ public class NPCDance : MonoBehaviour
             return;
         }
         
+        Debug.Log("Happy!!");
         _npcAnimationController.BecomeHappy();
     }
 
