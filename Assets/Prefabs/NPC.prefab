@@ -465,6 +465,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6112209685276447127, guid: a22dac272222f4c60b39c5993348bcf6,
+        type: 3}
+      propertyPath: _npcData
+      value: 
+      objectReference: {fileID: 245079213674470751}
+    - target: {fileID: 6112209685276447127, guid: a22dac272222f4c60b39c5993348bcf6,
+        type: 3}
+      propertyPath: NpcGameObject
+      value: 
+      objectReference: {fileID: 5875372726423255655}
     - target: {fileID: 6309628384878716090, guid: a22dac272222f4c60b39c5993348bcf6,
         type: 3}
       propertyPath: m_RotationOffset.z

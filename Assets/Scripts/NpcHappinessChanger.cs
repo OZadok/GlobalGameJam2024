@@ -86,11 +86,13 @@ public class NpcHappinessChanger : MonoBehaviour
         Messenger.Default.Subscribe<PlayerChangedDirectionEvent>(OnPlayerChangedDirection);
         Messenger.Default.Subscribe<TickEvent>(OnTickEvent);
         _waitForClick = true;
+        Messenger.Default.Publish(new PlayerEnterNpc(gameObject));
     }
     private void PlayerExit()
     {
         Messenger.Default.Unsubscribe<PlayerChangedDirectionEvent>(OnPlayerChangedDirection);
         Messenger.Default.Unsubscribe<TickEvent>(OnTickEvent);
+        Messenger.Default.Publish(new PlayerExitNpc(gameObject));
     }
     
     private void OnPlayerChangedDirection(PlayerChangedDirectionEvent obj)
