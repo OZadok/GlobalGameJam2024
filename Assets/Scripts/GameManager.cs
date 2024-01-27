@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Events;
 using SuperMaxim.Messaging;
@@ -24,6 +25,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Restart();
+        }
     }
 
     private void OnEnable()
