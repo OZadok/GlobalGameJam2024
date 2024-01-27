@@ -22,6 +22,8 @@ public class NpcHappinessChanger : MonoBehaviour
     
     private Coroutine waitAfterCoroutine;
     private Coroutine waitBeforeCoroutine;
+
+    public ParticleSystem goodParticles;
     
     private void Awake()
     {
@@ -86,11 +88,13 @@ public class NpcHappinessChanger : MonoBehaviour
         Messenger.Default.Subscribe<PlayerChangedDirectionEvent>(OnPlayerChangedDirection);
         Messenger.Default.Subscribe<TickEvent>(OnTickEvent);
         _waitForClick = true;
+        Messenger.Default.Publish(new PlayerEnterNpc(gameObject));
     }
     private void PlayerExit()
     {
         Messenger.Default.Unsubscribe<PlayerChangedDirectionEvent>(OnPlayerChangedDirection);
         Messenger.Default.Unsubscribe<TickEvent>(OnTickEvent);
+        Messenger.Default.Publish(new PlayerExitNpc(gameObject));
     }
     
     private void OnPlayerChangedDirection(PlayerChangedDirectionEvent obj)
@@ -152,6 +156,11 @@ public class NpcHappinessChanger : MonoBehaviour
     private void GoodTick()
     {
         Happiness.ChangeHappiness(gameObject, _goodTickHappinessChangePerSecond * _npcData.Period);
+        if (goodParticles != null)
+        {
+            goodParticles.Play();
+        }
+
         Messenger.Default.Publish(new GoodTickEvent());
     }
 
