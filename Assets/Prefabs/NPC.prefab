@@ -230,8 +230,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  _forgivenessTimeBefore: 0.1
-  _forgivenessTimeAfter: 0.1
+  _forgivenessTimeBefore: 0.25
+  _forgivenessTimeAfter: 0.2
   _goodTickHappinessChangePerSecond: 0.2
   _badTickHappinessChangePerSecond: -0.3
 --- !u!114 &7577644753274394462
@@ -246,8 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1967afb8e0c05b4185ad6f6aa785a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componnentsToRemove:
-  - {fileID: 4084796546644094112}
+  _npcHappinessChanger: {fileID: 0}
+  col: {fileID: 0}
 --- !u!1 &5951073256576509502
 GameObject:
   m_ObjectHideFlags: 0

@@ -152,10 +152,12 @@ public class NpcHappinessChanger : MonoBehaviour
     private void GoodTick()
     {
         Happiness.ChangeHappiness(gameObject, _goodTickHappinessChangePerSecond * _npcData.Period);
+        Messenger.Default.Publish(new GoodTickEvent());
     }
 
     private void BadTick()
     {
         Happiness.ChangeHappiness(gameObject, _badTickHappinessChangePerSecond * _npcData.Period);
+        Messenger.Default.Publish(new BadTickEvent());
     }
 }
